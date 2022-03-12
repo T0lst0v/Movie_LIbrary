@@ -1,0 +1,15 @@
+{
+  "name": "dc--node_react-movies",
+  "version": "1.0.0",
+  "description": "Digital Craft FullStack solo project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "local": "nodemon server/server.js"
+  },
+  "author": "Serghei Tolstov",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
