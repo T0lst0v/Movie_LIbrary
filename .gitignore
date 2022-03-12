@@ -1,13 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 /1old
 /2old
-
-# server"
-
-server/node_modules
+/node_modules
+node_module
 
 .env
-
 
 # dependencies
 client/node_modules
