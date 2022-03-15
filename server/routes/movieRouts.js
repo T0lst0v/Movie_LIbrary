@@ -1,5 +1,6 @@
 const express = require("express");
-const { movieAdd, movieEdit, movieAll, movieDelete } = require("../controller/movieController");
+const { movieEdit, movieAll, movieDelete } = require("../controller/movieController");
+const { movieAdd } = require("../controller/movieAddController");
 const router = express.Router();
 
 router.post("/add", movieAdd);
