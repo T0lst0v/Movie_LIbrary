@@ -1,0 +1,65 @@
+.auth-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-plate {
+  background-color: var(--color-main);
+  padding: 40px;
+  width: clamp(220px, 40%, 500px);
+  border: var(--border-style) var(--color-border-darker);
+  border-radius: var(--border-radius-l);
+}
+.auth-heading {
+  display: flex;
+  padding: 0 0px 14px;
+  justify-content: space-between;
+}
+
+.auth-heading .myReact-icons {
+  font-size: 26px;
+  color: var(--color-text-h);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.auth-field {
+  text-align: center;
+  font-size: 10px;
+  color: var(--color-text-p);
+}
+.auth-field label {
+  visibility: hidden;
+}
+.auth-form-input {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  text-align: center;
+  border-radius: var(--border-radius-s);
+}
+
+.auth-btn-container {
+  display: flex;
+  margin: 14px 0 0;
+  gap: 20px;
+}
+
+.btn {
+  padding: 8px;
+  color: var(--color-text-h);
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius-s);
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-focus {
+  background-color: var(--color-accent2);
+}

@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap");
+
+@font-face {
+  font-family: "Sansita One";
+  src: url("SansitaOne.ttf");
+}
+
+:root {
+  --color-bg: #1d2024;
+  --color-main: #444d5b;
+  --color-accent: #96adcf;
+  --color-accent2: #ab87a5;
+
+  --color-text-h: #ffffff;
+  --color-text-h-not_active: #96adcf;
+  --color-text-h-hover: #1d2024;
+  --color-text-p: #e9e9e9;
+  --color-text-p-revers: #1d2024;
+  --color-text-a: #1d2024;
+  --color-text-a-hover: #1d2024;
+
+  --color-border-lighter: #838383;
+  --color-border-darker: #595959;
+
+  --font-h: "Sansita One";
+  --font-p: "Poppins", sans-serif;
+
+  --border-style: 1px solid;
+  --border-radius-s: 4px;
+  --border-radius-l: 0px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+html,
+body,
+main {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-h);
+  color: var(--color-text-h);
+  font-weight: lighter;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-p);
+}
