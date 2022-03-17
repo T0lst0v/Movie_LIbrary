@@ -2,7 +2,7 @@ import "../styles/inputToFetch.css";
 import React from "react";
 
 const apiKey = process.env.REACT_APP_OMDP_KEY;
-const urlOmdb = `http://www.omdbapi.com/?apikey=${apiKey}`;
+const urlOmdb = `https://www.omdbapi.com/?apikey=${apiKey}`;
 
 function InputToFetch(props) {
   const [movie, setMovie] = React.useState({
