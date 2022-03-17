@@ -1,34 +1,51 @@
 import React from "react";
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaUserAltSlash } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import "../styles/header.css";
+import { connect } from "react-redux";
 
-function Header({ text }) {
+function Header(props) {
   return (
     <header>
       <div className="header">
-        <div className="logo">
-          <Link to="/">{text}</Link>
+        <div className="brand">
+          <NavLink to="/dashboard">
+            <h1>Movie Library</h1>
+          </NavLink>
         </div>
-        <ul>
-          <li>
-            <Link to="/login">
-              <FaSignInAlt /> Login
-            </Link>
-          </li>
-          <li>
-            <Link to="/register">
-              <FaUser />
-              Register
-            </Link>
-          </li>
-        </ul>
+        <div className="nav-container">
+          <ul className="navigation">
+            <li>
+              <NavLink to="/dashboard" className={(navData) => (navData.isActive ? "active" : "none")}>
+                All Movies
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/add">Add Movie</NavLink>
+            </li>
+          </ul>
+          <ul className="profile">
+            <li>{props.user}</li>
+            <li className="icon">
+              <NavLink to="/logout">
+                <FaUserAltSlash />
+              </NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
   );
 }
 
 Header.defaultProps = {
-  text: "Default",
+  user: "Anonymous",
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(Header);

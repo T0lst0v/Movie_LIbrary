@@ -7,30 +7,49 @@ import "../styles/auth.css";
 
 import { Link } from "react-router-dom";
 
+const API_URL = "/db/user/register/";
+
 function Register() {
-  const [formData, setFormData] = React.useState({
+  const [user, setUser] = React.useState({
     name: "",
     email: "",
     password: "",
-    password2: "",
+    // password2: "",
   });
 
-  const { name, email, password, password2 } = formData;
+  const { name, email, password } = user;
 
   const navigate = useNavigate();
   const toLogin = () => {
-    navigate("/Login");
+    navigate("/");
   };
 
   const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
+    setUser({
+      ...user,
       [e.target.id]: e.target.value,
-    }));
+    });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submiting user:");
+    console.log(user);
+    let respond = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+    respond = await respond.json();
+    if (respond.userCreated) {
+      //REFACTOR: auto login after registration
+      navigate("/dashboard");
+    } else {
+      //REFACTOR: send toasts with server messages
+    }
+    console.log(respond);
   };
 
   return (
@@ -39,7 +58,9 @@ function Register() {
         <section className="auth-heading">
           <IconContext.Provider value={{ className: "myReact-icons" }}>
             <>
-              <FaGithub />
+              <a href="https://github.com/T0lst0v/Movie_LIbrary" target="_blank" rel="noreferrer">
+                <FaGithub />
+              </a>
               <h1>register new user</h1>
               <ImInfo />
             </>
@@ -59,10 +80,10 @@ function Register() {
               <label htmlFor="name">password</label>
               <input type="password" className="auth-form-input" id="password" name="password" value={password} placeholder="Password" onChange={onChange} />
             </div>
-            <div className="auth-field">
+            {/* <div className="auth-field">
               <label htmlFor="name">confirm password</label>
               <input type="password" className="auth-form-input" id="password2" name="password2" value={password2} placeholder="Confirm password" onChange={onChange} />
-            </div>
+            </div> */}
             <div className="auth-btn-container">
               <button className="btn" onClick={toLogin}>
                 Login

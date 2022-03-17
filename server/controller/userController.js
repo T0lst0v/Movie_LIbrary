@@ -21,24 +21,26 @@ const userRegister = async (req, res) => {
 
     //check for empty fields
     if (!userName || !userEmail || !userPass) {
-      res.json({ message: "All fields are Required " });
+      res.json({ userCreated: false, message: "All fields are Required " });
       return;
     }
 
     //finding  user in DB
     const usersInDB = await DB.any("SELECT user_id FROM users WHERE email = $1", [userEmail]);
+    console.log(usersInDB);
 
     //if user not exist in DB
     if (usersInDB.length !== 1) {
       //register user with encrypting password
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(userPass, salt, async (err, hash) => {
-          const newUser = await DB.none(`INSERT INTO users(name, email, password) VAlUES($1, $2, $3)`, [userName, userEmail, hash]);
-          res.json({ user: newUser, message: "user created" });
+          const newUser = await DB.any(`INSERT INTO users(name, email, password) VAlUES($1, $2, $3)`, [userName, userEmail, hash]);
+          console.log(newUser);
+          res.json({ userCreated: true, message: "user created" });
         });
       });
     } else {
-      res.json({ message: "already exist" });
+      res.json({ userCreated: false, message: "User Already Exists" });
     }
   } catch (error) {
     res.json({ error });
@@ -55,7 +57,7 @@ const userLogin = async (req, res) => {
 
     //check for empty fields
     if (!userEmail || !userPass) {
-      res.json({ message: "All fields are Required " });
+      res.json({ auth: false, message: "All fields are Required " });
       return;
     }
 
@@ -64,7 +66,7 @@ const userLogin = async (req, res) => {
 
     //if user not exist in DB
     if (!userInDB) {
-      res.json({ message: "user does not exist" });
+      res.json({ auth: false, message: "user does not exist" });
       return;
     }
 
@@ -75,22 +77,23 @@ const userLogin = async (req, res) => {
         if (result) {
           //creating JWT based on Id of the user
           const token = jToken(userInDB.user_id);
-          res.json({ message: "LOGGED in", token });
+          res.json({ auth: true, message: "LOGGED in", token, user: { id: userInDB.user_id, name: userInDB.name, email: userInDB.email } });
         } else {
-          res.json({ message: "wrong password" });
+          res.json({ auth: false, message: "wrong password" });
         }
       });
     }
   } catch (error) {
-    res.json({ message: error });
+    res.json({ auth: false, message: error });
   }
 };
 
 //*desc user Profile
 //*route /db/user/info
-//*access Privet
+//*access Protected
 const userInfo = asyncHandler(async (req, res) => {
-  res.send("Profile");
+  console.log(req.user);
+  res.json({ user: req.user });
 });
 
 module.exports = {

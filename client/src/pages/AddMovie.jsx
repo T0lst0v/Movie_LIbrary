@@ -6,7 +6,7 @@ function Dashboard() {
   return (
     <>
       <Header />
-      <div>Dashboard</div>
+      <div>ADD MOVIE</div>
     </>
   );
 }

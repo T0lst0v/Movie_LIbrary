@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/userModel");
+const DB = require("../utils/db");
 
 async function authenticate(req, res, next) {
   try {
@@ -10,14 +10,18 @@ async function authenticate(req, res, next) {
 
       //verify token
       jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+        console.log("MW --> verifying token");
         // err
         if (err) {
           res.json({ message: "Unable to authenticate!" });
           console.log("MW --> Token Auth Error");
         } else {
           //get user from token
-          req.user = await User.findById(decoded.id).select("-password");
+
+          req.user = await DB.one("SELECT name, email, user_id  FROM users WHERE user_id=($1)", [decoded.id]);
+          // req.user = await User.findById(decoded.id).select("-password");
           console.log("MW --> Token decoded and passed info(id): " + decoded.id);
+
           next();
         }
       });

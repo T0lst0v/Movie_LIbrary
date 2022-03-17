@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-main);
+  padding: 20px 10vw;
+}
+a {
+  text-decoration: none;
+  font-style: inherit;
+  color: inherit;
+}
+
+.nav-container {
+  display: flex;
+  gap: 10vw;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  color: var(--color-accent);
+}
+.profile {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+  color: var(--color-accent2);
+}
+
+.profile .icon {
+  font-size: 30px;
+  line-height: 0px;
+  color: var(--color-accent);
+}
+
+.active {
+  color: white;
+}

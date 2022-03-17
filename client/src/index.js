@@ -2,9 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.css";
 import App from "./App";
-import { store } from "./app/store";
+// import { store } from "./app/store";
 import { Provider } from "react-redux";
+import { createStore } from "redux";
 import * as serviceWorker from "./serviceWorker";
+import reducer from "./store/reducer";
+
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+//after page refresh - RERENDER page by getting user name form the local storage
+const user = localStorage.getItem("user");
+store.dispatch({ type: "ON_AUTH", payload: user });
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +23,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
