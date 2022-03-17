@@ -34,12 +34,12 @@ p {
   flex-direction: row;
   padding: 30px;
   /* width: clamp(380px 800px 90%); */
-  width: 800px;
+  width: 680px;
   background-color: black;
 }
 
 .card-big-img img {
-  max-height: 60vh;
+  max-height: 30vh;
   margin-right: 20px;
   object-fit: cover;
 }
@@ -48,9 +48,12 @@ p {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: rgb(92, 92, 92);
+  /* background-color: rgb(92, 92, 92); */
 }
-
+.card-big-btn-container {
+  display: flex;
+  justify-content: end;
+}
 .card-big-btn-container button {
   margin: 10px;
   padding: 8px;

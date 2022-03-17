@@ -8,7 +8,7 @@ const DB = require("../utils/db");
 //*access Protected
 const movieAdd = asyncHandler(async (req, res) => {
   try {
-    const movie = ({ imdbID, title, year, imdbRating, director, plot, genres, actors } = req.body);
+    const movie = ({ imdbID, title, year, imdbRating, director, plot, genres, actors, img_url } = req.body);
     //  genres and actors are string of genres need to be parsed to array
 
     if (!imdbID || !title || !year || !imdbRating || !director || !plot || !genres || !actors) {
@@ -33,7 +33,7 @@ const movieAdd = asyncHandler(async (req, res) => {
 
         //
         //  add to movie to movies Table
-        await DB.none("INSERT INTO movies(imdb_id, m_title, m_year, imdb_rating, director, plot) VALUES($1, $2, $3, $4, $5, $6)", [imdbID, title, year, imdbRating, director, plot]);
+        await DB.none("INSERT INTO movies(imdb_id, m_title, m_year, imdb_rating, director, plot) VALUES($1, $2, $3, $4, $5, $6,$7)", [imdbID, title, year, imdbRating, director, plot, img_url]);
         message = `movie added`;
         //
         //
@@ -65,12 +65,12 @@ const movieAdd = asyncHandler(async (req, res) => {
           }
           //adding Movie ID and Genre to genre join table
           await DB.none("INSERT INTO movies_genres(imdb_id, genre) VALUES($1, $2)", [imdbID, genre]);
+          await DB.none("INSERT INTO users_movies (user_id, imdb_id) VALUES ($1, $2)", [req.user.user_id, imdbID]);
         });
-
-        res.json({ message: "movie added to Movies DB ", movie });
+        res.json({ message: "movie added to Movies DB", movie });
       } else {
         await DB.none("INSERT INTO users_movies (user_id, imdb_id) VALUES ($1, $2)", [req.user.user_id, imdbID]);
-        res.json({ message: `movie added to users_movies DB ` });
+        res.json({ message: `movie added Only to users_movies DB ` });
       }
     } else {
       console.log("adding to the library");
