@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/cardSmall.css";
 const apiKey = process.env.REACT_APP_OMDP_KEY;
-const urlOmdb = `http://www.omdbapi.com/?apikey=${apiKey}`;
+const urlOmdb = `https://www.omdbapi.com/?apikey=${apiKey}`;
 
 function Card(props) {
   //error prevent - if movies was fetch and passed successful

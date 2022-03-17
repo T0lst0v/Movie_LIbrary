@@ -33,7 +33,7 @@ class Search extends React.Component {
     return (
       <div>
         <div id="search">
-          <input type="search" placeholder="Book Title or Author" onChange={this.handleSearch}></input>
+          <input type="search" placeholder="Movie Title" onChange={this.handleSearch}></input>
         </div>
       </div>
     );
