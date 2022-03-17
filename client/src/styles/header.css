@@ -26,12 +26,12 @@ a {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 10px;
+  gap: 6px;
   color: var(--color-accent2);
 }
 
 .profile .icon {
-  font-size: 30px;
+  /* font-size: 30px; */
   line-height: 0px;
   color: var(--color-accent);
 }

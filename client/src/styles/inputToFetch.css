@@ -1,0 +1,18 @@
+.fetch-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: white;
+  height: 30px;
+}
+
+.fetch input {
+  text-align: center;
+  height: 100%;
+}
+
+.btn-fetch {
+  width: 100px;
+  height: 100%;
+  cursor: pointer;
+}

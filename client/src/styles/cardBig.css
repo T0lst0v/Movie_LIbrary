@@ -1,0 +1,58 @@
+h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+h4,
+h5 {
+  display: inline;
+}
+h4 {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 14px;
+}
+p {
+  font-size: 12px;
+  font-weight: 200;
+}
+.card-big-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  width: 100%;
+  background-color: darkslateblue;
+}
+
+.card-big {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  /* width: clamp(380px 800px 90%); */
+  width: 800px;
+  background-color: black;
+}
+
+.card-big-img img {
+  max-height: 60vh;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(92, 92, 92);
+}
+
+.card-big-btn-container button {
+  margin: 10px;
+  padding: 8px;
+  width: 100px;
+}
