@@ -24,6 +24,7 @@ const movieAdd = asyncHandler(async (req, res) => {
       console.log("not in a library");
 
       const movieInDB = await DB.any("SELECT imdb_id FROM movies WHERE imdb_id=($1)", [imdbID]);
+      console.log(0);
       if (movieInDB.length === 0) {
         console.log(1);
         //add Director to the director table if wasn't there before
@@ -46,8 +47,9 @@ const movieAdd = asyncHandler(async (req, res) => {
         ]);
         message = `movie added`;
         console.log(4);
+        await DB.none("INSERT INTO users_movies (user_id, imdb_id) VALUES ($1, $2)", [req.user.user_id, imdbID]);
+        console.log(4.1);
         //
-
         //
 
         // if actors not exist already in a table then  add actors to actors Table  and joint table movies_actors
@@ -83,14 +85,15 @@ const movieAdd = asyncHandler(async (req, res) => {
           await DB.none("INSERT INTO movies_genres(imdb_id, genre) VALUES($1, $2)", [imdbID, genre]);
           console.log(11);
         });
-        await DB.none("INSERT INTO users_movies (user_id, imdb_id) VALUES ($1, $2)", [req.user.user_id, imdbID]);
-        res.json({ message: "movie added to Movies DB and  to users_movies DB", movie });
+        res.json({ message: `movie Added to DB and to user_movie` });
+        // await DB.none("INSERT INTO users_movies (user_id, imdb_id) VALUES ($1, $2)", [req.user.user_id, imdbID]);
+        console.log(12);
       } else {
-        await DB.none("INSERT INTO users_movies (user_id, imdb_id) VALUES ($1, $2)", [req.user.user_id, imdbID]);
-        res.json({ message: `movie added to users_movies DB ` });
+        res.json({ message: `movie DB already has this movie` });
       }
     } else {
       console.log("adding to the library");
+      res.json({ message: "User Already has this movie", movie });
     }
   } catch (error) {
     res.json({ error });
