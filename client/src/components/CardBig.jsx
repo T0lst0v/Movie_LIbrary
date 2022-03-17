@@ -12,7 +12,7 @@ function CardBig(props) {
   const onSubmit = async (e) => {
     const token = localStorage.getItem("jwt");
     const res = await (
-      await fetch("https://dc-movie-library.herokuapp.com/db/movie/add", {
+      await fetch("http://localhost:8000/db/movie/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
