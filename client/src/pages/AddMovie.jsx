@@ -13,6 +13,9 @@ function Dashboard() {
 
   function handleMovieFetch(newValue) {
     setMovieArr(newValue);
+    setMovie(newValue[0]);
+    console.log("=======");
+    console.log(newValue);
   }
 
   console.log(".....FROM PARENT......");

@@ -43,6 +43,7 @@ h5 {
   margin-right: 20px;
   background-color: var(--color-main);
   flex-shrink: 0;
+  margin: auto;
 }
 
 .card-big-img img {
@@ -85,4 +86,16 @@ h5 {
   margin: 10px;
   padding: 8px;
   width: 100px;
+}
+
+@media (max-width: 740px) {
+  .card-big {
+    flex-direction: column;
+    justify-content: space-between;
+    width: unset;
+    height: unset;
+  }
+  .card-big-btn-container {
+    position: relative;
+  }
 }

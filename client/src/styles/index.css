@@ -66,3 +66,22 @@ button:hover {
   cursor: pointer;
   color: white;
 }
+
+/* VIEW PORTS */
+@media (max-width: 900px) {
+  .info-card {
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(103, 100, 100);
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10vw;
+    background-color: #838383;
+  }
+}
+@media (max-width: 750px) {
+}
+@media (max-width: 540px) {
+}

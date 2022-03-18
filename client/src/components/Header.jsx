@@ -27,7 +27,7 @@ function Header(props) {
           <ul className="profile">
             <li>{props.user}</li>
             <li className="icon">
-              <NavLink to="/logout">/ logout</NavLink>
+              <NavLink to="/logout">| Logout</NavLink>
             </li>
           </ul>
         </div>

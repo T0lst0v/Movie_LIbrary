@@ -3,6 +3,9 @@ import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { LeftArrow, RightArrow } from "./Arrows";
 import "../styles/cardSmall.css";
 import Card from "./Card";
+import { useEffect } from "react";
+const apiKey = process.env.REACT_APP_OMDP_KEY;
+const urlOmdb = `https://www.omdbapi.com/?apikey=${apiKey}`;
 
 // Allows scroll wheel to move the carousel
 function onWheel(apiObj, ev) {
@@ -25,6 +28,14 @@ export default function Carousel(props) {
   const movies = props.movieArr || [];
   console.log("+++++++++++");
   console.log(movies);
+  useEffect(() => {
+    async function firstMovie() {
+      const res = await fetch(`${urlOmdb}&i=${movies[0].imdbID}`);
+      const movie = await res.json();
+      props.movieSelect(movie);
+    }
+    firstMovie();
+  }, []);
 
   return (
     <div className="carousel-wrap">

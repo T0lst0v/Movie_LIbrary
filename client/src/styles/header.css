@@ -31,11 +31,34 @@ a {
 }
 
 .profile .icon {
-  /* font-size: 30px; */
-  line-height: 0px;
   color: var(--color-accent);
+  flex-shrink: 0;
 }
 
 .active {
   color: white;
+}
+
+@media (max-width: 900px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 3vw;
+  }
+}
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    gap: 5px;
+  }
+  .header h1 {
+    font-size: 22px;
+  }
+  .nav-container {
+    display: flex;
+    gap: 30px;
+    justify-content: space-around;
+  }
 }

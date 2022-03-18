@@ -36,7 +36,7 @@ function CardBig(props) {
       })
     ).json();
 
-    console.log(res);
+    alert(res.message);
   };
 
   return (
@@ -54,7 +54,7 @@ function CardBig(props) {
           <h5>{movie.Genre}</h5>
           <span className="card-big-rating">
             IMD &nbsp;
-            {props.movie && <h5>{movie.Ratings.length >= 1 ? movie.Ratings[0].Value : "-"}</h5>}
+            {/* {props.movie && <h5>{movie.Ratings.length >= 1 ? movie.Ratings[0].Value : "-"}</h5>} */}
           </span>
           <p className="card-big-plot">{movie.Plot}</p>
 

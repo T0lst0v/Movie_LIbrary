@@ -36,8 +36,7 @@ function InputToFetch(props) {
     const response = await fetch(`${urlOmdb}&y=${movie.year}&s=${titleNoSpaces}`);
     const moviesArr = await response.json();
     props.onChange(moviesArr.Search);
-
-    console.log(moviesArr.Search[0]);
+    // console.log(moviesArr.Search[0]);
     // props.movieSelect(moviesArr.Search[0]); //display 1st movie founded with full info
   };
 

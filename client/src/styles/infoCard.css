@@ -25,7 +25,9 @@
   background-color: var(--color-bg2);
   border: 1px solid var(--color-border-darker);
   display: flex;
+  flex-direction: row;
   padding: 20px;
+  /* background-color: rgb(103, 100, 100); */
 }
 .info-movie-cover img {
   height: 240px;
@@ -50,4 +52,10 @@
 }
 .info-movie-plot {
   font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .info-card {
+    width: 100%;
+  }
 }
