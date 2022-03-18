@@ -59,7 +59,7 @@ function CardBig(props) {
           <p className="card-big-plot">{movie.Plot}</p>
 
           <div className="card-big-btn-container">
-            <button className="btn-edit">Edit</button>
+            <button className="btn-edit">add Note</button>
             <button className="btn-save" onClick={onSubmit}>
               Save
             </button>
