@@ -1,4 +1,5 @@
 import React from "react";
+
 import "../styles/cardSmall.css";
 const apiKey = process.env.REACT_APP_OMDP_KEY;
 const urlOmdb = `https://www.omdbapi.com/?apikey=${apiKey}`;

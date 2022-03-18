@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/cardBig.css";
+import { AiOutlinePicture } from "react-icons/ai";
 
 function CardBig(props) {
   //error prevent - if movies was fetch and passed successful
@@ -34,34 +35,31 @@ function CardBig(props) {
         }),
       })
     ).json();
+
     console.log(res);
   };
 
   return (
     <div className="card-big-container">
       <div className="card-big">
-        <div className="card-big-img">
-          <img src={movie.Poster} alt="movie poster" />
-        </div>
+        <div className="card-big-img">{props.movie && <img src={movie.Poster} alt="movie poster" />}</div>
         <div className="movie-info">
           <h3>{movie.Title}</h3>
-          <p className="card-big-year">
+          <span className="card-big-year">
             <h5>{movie.Year}</h5>
-          </p>
-          <p className="card-big-director">
+          </span>
+          <span className="card-big-director">
             Director:<h4> {movie.Director}</h4>
-          </p>
-
+          </span>
           <h5>{movie.Genre}</h5>
-
-          <p className="card-big-rating">
-            IMD:
+          <span className="card-big-rating">
+            IMD &nbsp;
             {props.movie && <h5>{movie.Ratings.length >= 1 ? movie.Ratings[0].Value : "-"}</h5>}
-          </p>
+          </span>
           <p className="card-big-plot">{movie.Plot}</p>
-          <div className="space-filler"></div>
+
           <div className="card-big-btn-container">
-            {/* <button className="btn-edit">Edit</button> */}
+            <button className="btn-edit">Edit</button>
             <button className="btn-save" onClick={onSubmit}>
               Save
             </button>

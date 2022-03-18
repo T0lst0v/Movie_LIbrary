@@ -23,10 +23,22 @@ function InputToFetch(props) {
     if (e) {
       e.preventDefault();
     }
-    const response = await fetch(`${urlOmdb}&y=${movie.year}&s=${movie.title}`);
+
+    function removeSpaces(val) {
+      let noSpaces = val.trim(); //extra step if space needed to be replaced (not just removed)
+      return noSpaces.split(" ").join("+");
+    }
+
+    const titleNoSpaces = removeSpaces(movie.title);
+
+    // const titleNoSpaces = (movie.title)=> ((movie.title).trim).split(" ").join("+");
+
+    const response = await fetch(`${urlOmdb}&y=${movie.year}&s=${titleNoSpaces}`);
     const moviesArr = await response.json();
     props.onChange(moviesArr.Search);
-    // console.log(moviesArr.Search);
+
+    console.log(moviesArr.Search[0]);
+    // props.movieSelect(moviesArr.Search[0]); //display 1st movie founded with full info
   };
 
   return (

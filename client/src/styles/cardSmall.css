@@ -1,25 +1,35 @@
 .card-small-list {
+  /* padding: 20px; */
   position: relative;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
-  display: flex;
   flex-flow: row wrap;
   gap: 20px;
   font-weight: 500;
   font-size: 16px;
   justify-content: space-around;
+  background-color: var(--color-main);
 }
 
 .card-small {
+  display: inline-block;
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;
   width: 200px;
-  /* height: 300px; */
-  border: 1px solid gray;
-  background-color: #282c34;
+  height: 320px;
+  margin: 20px 10px;
+  border: 1px solid var(--color-border-darker);
+  background-color: var(--color-bg2);
   text-align: center;
+  transition: 0.4s;
+}
+
+.card-small:hover {
+  z-index: 3;
+  display: block;
+  transform: scale(1.1);
 }
 
 .movie-cover {
@@ -27,9 +37,9 @@
   display: block;
   position: relative;
   height: 160px;
+  width: 160px;
   margin: 0 auto 20px;
-  justify-items: center;
-  justify-content: center;
+  object-fit: cover;
 }
 
 .movie-title {
@@ -51,11 +61,46 @@
   color: var(--color-accent);
 }
 .space-filler {
-  flex-grow: 1;
+  /* height: 100%; */
+  /* flex-grow: 1; */
 }
 .btn-movie-select {
+  position: absolute;
+  bottom: 5px;
+  margin: auto;
+  left: 0;
+  right: 0;
   margin: 20px auto 10px;
   width: 80px;
   padding: 5px;
   border-radius: var(--border-radius-s);
+}
+
+.btn-carousal {
+  margin: 0 20px;
+  width: 40px;
+  /* background-color: aliceblue; */
+}
+.react-horizontal-scrolling-menu--scroll-container {
+  /* justify-content: center; */
+  justify-items: center;
+  padding: 0 40px;
+}
+.arrows {
+  font-size: 50px;
+  color: var(--color-accent);
+  transition: 0.3s;
+}
+.arrows:hover {
+  transform: scale(1.5);
+}
+
+/* hide scroll bar */
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+  display: none;
+}
+/* hide scroll bar */
+.react-horizontal-scrolling-menu--scroll-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

@@ -14,13 +14,18 @@ class Card extends React.Component {
           {movies.map((movie, index) => {
             console.log(movie);
             return (
-              <div className="card-small" key={index}>
-                <img className="movie-cover" src={movie.img_url} alt="" />
-                <p className="movie-title">{movie.m_title}</p>
-                <p className="movie-year">{movie.m_year} year</p>
-                <p className="movie-director">{movie.director}</p>
-                <div className="space-filler"></div>
-                <button className="btn-movie-select">Select</button>
+              <div className="info-card" key={index}>
+                <div className="info-movie-cover">
+                  <img src={movie.img_url} alt="" />
+                </div>
+                <div className="info-card-info">
+                  <p className="info-movie-title">{movie.m_title}</p>
+                  <p className="info-movie-year">{movie.m_year}</p>
+                  <p className="info-movie-director">{movie.director}</p>
+                  <p className="info-movie-genres">{movie.genres}</p>
+                  <p className="info-movie-score">IMDB - {movie.imdb_rating}</p>
+                  <p className="info-movie-plot">{movie.plot}</p>
+                </div>
               </div>
             );
           })}

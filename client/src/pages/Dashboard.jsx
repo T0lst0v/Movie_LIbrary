@@ -44,7 +44,6 @@ class Dashboard extends React.Component {
       <>
         <Header />
         <Search movies={this.state.movies} onSearchCompleted={this.handleSearchCompleted} />
-        <div>Dashboard</div>
         <InfoCards filteredMovies={this.state.filteredMovies} allMovies={this.state.movies} />
       </>
     );

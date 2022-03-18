@@ -7,6 +7,7 @@
 
 :root {
   --color-bg: #1d2024;
+  --color-bg2: #2c3036;
   --color-main: #444d5b;
   --color-accent: #96adcf;
   --color-accent2: #ab87a5;
@@ -21,7 +22,7 @@
   --color-text-a-hover: #1d2024;
 
   --color-border-lighter: #838383;
-  --color-border-darker: #595959;
+  --color-border-darker: #5e5e5e;
 
   --font-h: "Sansita One";
   --font-p: "Poppins", sans-serif;
@@ -53,5 +54,15 @@ h2 {
 body {
   background-color: var(--color-bg);
   font-family: var(--font-p);
+  color: white;
+}
+button {
+  transition: 0.3s;
+  border-radius: var(--border-radius-s);
+}
+button:hover {
+  background-color: var(--color-accent2);
+  transform: scale(1.1);
+  cursor: pointer;
   color: white;
 }
