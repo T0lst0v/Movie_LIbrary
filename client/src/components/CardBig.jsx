@@ -11,8 +11,10 @@ function CardBig(props) {
   //sending to DB
   const onSubmit = async (e) => {
     const token = localStorage.getItem("jwt");
+    //https://dc-movie-library.herokuapp.com/db/movie/add
+    // http://localhost:8000/db/movie/add
     const res = await (
-      await fetch("http://localhost:8000/db/movie/add", {
+      await fetch("/db/movie/add/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,9 +51,9 @@ function CardBig(props) {
           <p className="card-big-director">
             Director:<h4> {movie.Director}</h4>
           </p>
-          <p className="card-big-genre">
-            <h5>{movie.Genre}</h5>
-          </p>
+
+          <h5>{movie.Genre}</h5>
+
           <p className="card-big-rating">
             IMD:
             {props.movie && <h5>{movie.Ratings.length >= 1 ? movie.Ratings[0].Value : "-"}</h5>}

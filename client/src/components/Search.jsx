@@ -11,15 +11,17 @@ class Search extends React.Component {
   }
 
   handleSearch = (ev) => {
+    console.log("from Serach movies:");
+    // console.log(this.props.movies);
     this.setState({ titleSearch: ev.target.value });
-    const books = this.props.books;
+    const movies = this.props.movies;
     const titleSearch = ev.target.value;
 
-    const filteredBooks = books.filter((books) => {
-      return books.title.toLowerCase().includes(titleSearch.toLowerCase()) || books.author.toLowerCase().includes(titleSearch.toLowerCase());
+    const filteredMovies = movies.filter((movies) => {
+      return movies.m_title.toLowerCase().includes(titleSearch.toLowerCase()) || movies.director.toLowerCase().includes(titleSearch.toLowerCase());
     });
 
-    this.props.onSearchCompleted(filteredBooks);
+    this.props.onSearchCompleted(filteredMovies);
   };
 
   render() {

@@ -36,7 +36,7 @@ const movieAdd = asyncHandler(async (req, res) => {
         console.log(3);
         //
         //  add to movie to movies Table
-        await DB.none("INSERT INTO movies(imdb_id, m_title, m_year, imdb_rating, director, plot, img_url) VALUES($1, $2, $3, $4, $5, $6, $7)", [
+        await DB.none("INSERT INTO movies(imdb_id, m_title, m_year, imdb_rating, director, plot, img_url, genres, actors) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)", [
           imdbID,
           title,
           year,
@@ -44,6 +44,8 @@ const movieAdd = asyncHandler(async (req, res) => {
           director,
           plot,
           img_url,
+          genres,
+          actors,
         ]);
         message = `movie added`;
         console.log(4);
