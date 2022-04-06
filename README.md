@@ -16,4 +16,4 @@
   - HTML
   - CSS
   - React
-  - Redux
+
