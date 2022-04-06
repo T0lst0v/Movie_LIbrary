@@ -11,8 +11,6 @@ class Search extends React.Component {
   }
 
   handleSearch = (ev) => {
-    console.log("from Serach movies:");
-    // console.log(this.props.movies);
     this.setState({ titleSearch: ev.target.value });
     const movies = this.props.movies;
     const titleSearch = ev.target.value;
@@ -25,17 +23,10 @@ class Search extends React.Component {
   };
 
   render() {
-    // const books = this.props.books;
-    // const titleSearch = this.state.titleSearch;
-
-    // const filteredBooks = books.filter((books) => {
-    //   return books.title.toLowerCase().includes(titleSearch.toLowerCase()) || books.author.toLowerCase().includes(titleSearch.toLowerCase());
-    // });
-
     return (
       <div>
         <div id="search">
-          <input type="search" placeholder="Movie Title" onChange={this.handleSearch}></input>
+          <input type="search" placeholder="search by Movie Title or Director" onChange={this.handleSearch}></input>
         </div>
       </div>
     );

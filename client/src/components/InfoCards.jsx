@@ -3,16 +3,12 @@ import "../styles/infoCard.css";
 
 class Card extends React.Component {
   render() {
-    console.log(this.props.filteredMovies);
-    console.log(this.props.allMovies);
-    console.log("------------");
     let movies = this.props.filteredMovies.length === 0 ? this.props.allMovies : this.props.filteredMovies;
 
     return (
       <div className="info-card-container">
         <div className="info-card-list">
           {movies.map((movie, index) => {
-            console.log(movie);
             return (
               <div className="info-card" key={index}>
                 <div className="info-movie-cover">
@@ -35,28 +31,3 @@ class Card extends React.Component {
   }
 }
 export default Card;
-
-// class Card extends React.Component {
-//   render() {
-//     //error prevent - if movies was fetch and passed successful
-//     const movies = this.props.movie ? this.props.movie : [];
-//     console.log("from cards");
-//     console.log(movies);
-
-//     return (
-//       <div className="card-small-list">
-//         {movies.map((movie, index) => {
-//           return (
-//             <div className="card-small" key={index}>
-//               <img className="movie-cover" src={movie.Poster} alt="" />
-//               <p className="movie-title">{movie.Title}</p>
-//               <p className="movie-year">{movie.Year} year</p>
-//               <div className="space-filler"></div>
-//               <button className="btn-movie-select">Select</button>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     );
-//   }
-// }

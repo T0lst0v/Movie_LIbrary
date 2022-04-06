@@ -46,7 +46,7 @@ h5 {
   margin: auto;
 }
 
-.card-big-img img {
+.card-big-img {
   width: 280px;
   height: 420px;
   background-color: var(--color-main);

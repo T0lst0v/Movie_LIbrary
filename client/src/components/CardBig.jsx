@@ -3,17 +3,13 @@ import "../styles/cardBig.css";
 import { AiOutlinePicture } from "react-icons/ai";
 
 function CardBig(props) {
-  //error prevent - if movies was fetch and passed successful
+  //TODO: error prevent - if movies was fetch and passed successful
   const movie = props.movie;
-  console.log("from Big card:");
-  console.log(movie);
-  // console.log(movie.Ratings[0].Value);
 
   //sending to DB
   const onSubmit = async (e) => {
     const token = localStorage.getItem("jwt");
-    //https://dc-movie-library.herokuapp.com/db/movie/add
-    // http://localhost:8000/db/movie/add
+
     const res = await (
       await fetch("/db/movie/add/", {
         method: "POST",

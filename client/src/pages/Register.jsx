@@ -33,8 +33,7 @@ function Register() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submiting user:");
-    console.log(user);
+
     let respond = await fetch(API_URL, {
       method: "POST",
       headers: {
@@ -49,7 +48,7 @@ function Register() {
     } else {
       //REFACTOR: send toasts with server messages
     }
-    console.log(respond);
+    //TODO: PAssword verification
   };
 
   return (
