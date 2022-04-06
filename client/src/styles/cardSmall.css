@@ -40,6 +40,8 @@
   width: 160px;
   margin: 0 auto 20px;
   object-fit: cover;
+  border: 1px solid var(--color-border-darker);
+  border-radius: var(--border-radius-s);
 }
 
 .movie-title {

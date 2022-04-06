@@ -38,21 +38,16 @@ h5 {
 }
 
 .card-big-img {
-  width: 280px;
-  height: 420px;
-  margin-right: 20px;
-  background-color: var(--color-main);
-  flex-shrink: 0;
-  margin: auto;
+  /* margin: 0 auto; */
 }
-
 .card-big-img {
+  flex-shrink: 0;
   width: 280px;
   height: 420px;
+  object-fit: cover;
   background-color: var(--color-main);
   border: 1px solid var(--color-border-darker);
   border-radius: var(--border-radius-s);
-  object-fit: cover;
 }
 
 .movie-info {

@@ -38,7 +38,8 @@ function CardBig(props) {
   return (
     <div className="card-big-container">
       <div className="card-big">
-        <div className="card-big-img">{props.movie && <img src={movie.Poster} alt="movie poster" />}</div>
+        {props.movie && <img src={movie.Poster} alt="movie poster" className="card-big-img" />}
+
         <div className="movie-info">
           <h3>{movie.Title}</h3>
           <span className="card-big-year">
