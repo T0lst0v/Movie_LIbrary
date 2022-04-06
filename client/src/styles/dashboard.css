@@ -11,3 +11,9 @@
   font-size: 16px;
   text-align: center;
 }
+
+@media (max-width: 540px) {
+  .arrow-helpers {
+    display: none;
+  }
+}

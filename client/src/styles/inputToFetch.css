@@ -19,3 +19,14 @@
 .btn-fetch:hover {
   background-color: var(--color-accent2);
 }
+
+@media (max-width: 540px) {
+  .btn-fetch {
+    width: 100%;
+    border-radius: 0;
+    border: 1px solid var(--color-border-lighter);
+  }
+  .fetch input {
+    width: 50%;
+  }
+}
