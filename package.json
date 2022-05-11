@@ -1,7 +1,7 @@
 {
   "name": "dc--node_react-movies",
   "version": "1.0.0",
-  "description": "Digital Craft FullStack solo project",
+  "description": "Digital Crafts FullStack solo project",
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",

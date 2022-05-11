@@ -5,7 +5,7 @@ import { IconContext } from "react-icons";
 import { useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const API_URL = "/db/user/register/";
 
@@ -14,10 +14,10 @@ function Register() {
     name: "",
     email: "",
     password: "",
-    // password2: "",
+    password2: "",
   });
 
-  const { name, email, password } = user;
+  const { name, email, password, password2 } = user;
 
   const navigate = useNavigate();
   const toLogin = () => {
