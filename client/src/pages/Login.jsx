@@ -37,6 +37,7 @@ function Login(props) {
   };
 
   const onSubmit = async (e) => {
+    console.log("submit");
     if (e) {
       e.preventDefault();
     }
@@ -96,6 +97,7 @@ function Login(props) {
               <button onClick={guestLogin} className="btn btn-focus">
                 Guest
               </button>
+
               <button type="submit" className="btn ">
                 Login
               </button>

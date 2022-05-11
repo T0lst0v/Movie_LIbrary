@@ -79,10 +79,10 @@ function Register() {
               <label htmlFor="name">password</label>
               <input type="password" className="auth-form-input" id="password" name="password" value={password} placeholder="Password" onChange={onChange} />
             </div>
-            {/* <div className="auth-field">
+            <div className="auth-field">
               <label htmlFor="name">confirm password</label>
               <input type="password" className="auth-form-input" id="password2" name="password2" value={password2} placeholder="Confirm password" onChange={onChange} />
-            </div> */}
+            </div>
             <div className="auth-btn-container">
               <button className="btn" onClick={toLogin}>
                 Login
