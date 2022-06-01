@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const DB = require("../utils/db");
 
+
 async function authenticate(req, res, next) {
   try {
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {

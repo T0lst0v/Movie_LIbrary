@@ -19,7 +19,7 @@
   justify-content: space-between;
 }
 
-.auth-heading .myReact-icons {
+.auth-heading .auth-icons {
   font-size: 26px;
   color: var(--color-text-h);
 }
